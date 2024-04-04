@@ -67,7 +67,7 @@ def update_progress(progress):
 
 if __name__ == "__main__":
     name_dataset = "Vibrio" 
-    folder = "Vibrio"
+    folder = "Data"
     results_folder = "Results IDESHI and IEDCR"
     type_data = "Clinical Classification Paper BD-1.2"
     
