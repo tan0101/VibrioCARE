@@ -15,6 +15,8 @@ Four scripts are available:
 
 ## Software requirements
 
+The project was developed using the Conda v23.1.0 environment.
+
 ### OS Requirements
 
 This package is supported for Windows. The package has been tested on the following system: 
@@ -25,7 +27,6 @@ This package is supported for Windows. The package has been tested on the follow
 ### Python Dependencies
 
 ```
-conda v23.1.0
 python v3.9.15
 numpy v1.21.5
 pandas v1.4.4
