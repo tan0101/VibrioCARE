@@ -167,9 +167,9 @@ if __name__ == "__main__":
         GradientBoostingClassifier()
         ]
     
-    print(clinical_data_df.columns[5:11])
-    for name_clinical in clinical_data_df.columns[6:11]:
-        print("Antibiotic: {}".format(name_clinical))
+    print(clinical_data_df.columns[4:9])
+    for name_clinical in clinical_data_df.columns[4:9]:
+        print("Symptom: {}".format(name_clinical))
         
         target_orig = np.array(clinical_data_df[name_clinical])
         
