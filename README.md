@@ -39,7 +39,7 @@ matplotlib v3.6.2
 ## Install from Github
 
 ```
-git clone [GitHub Pages](https://github.com/tan0101/VibrioCARE)
+git clone https://github.com/tan0101/VibrioCARE
 cd VibrioCARE
 python3 setup.py install
 ```
