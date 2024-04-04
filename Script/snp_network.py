@@ -60,7 +60,7 @@ if __name__ == "__main__":
     snp_matrix[snp_matrix>0] = 1
 
     # Load Metadata:
-    metadata_df = pd.read_csv(folder+"/"+name_dataset+'_metadata3.csv', header = [0], index_col=[0])
+    metadata_df = pd.read_csv(folder+"/"+name_dataset+'_metadata.csv', header = [0], index_col=[0])
     samples_metadata = np.array(metadata_df[metadata_df.columns[0]])    
 
     print(np.array_equal(samples_name,samples_metadata))    
