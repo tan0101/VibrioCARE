@@ -28,7 +28,7 @@ This package is supported for Windows. The package has been tested on the follow
 python v3.9.15
 numpy v1.21.5
 pandas v1.4.4
-scikit-learn v1.2.1
+scikit-learn v1.0.2
 scipy v1.9.3
 networkx v2.8.4
 matplotlib v3.6.2
