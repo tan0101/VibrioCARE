@@ -50,6 +50,7 @@ python3 setup.py install
 ```
 
 # Algorithm's Flow
+![/images/algorithm_flow.png]
 
 # License
 
