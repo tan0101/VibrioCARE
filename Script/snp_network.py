@@ -298,7 +298,7 @@ if __name__ == "__main__":
                 size=15, weight='bold')
 
 
-    plt.savefig(folder+'/SNP_network_'+name_dataset+'.svg', bbox_inches='tight')
+    plt.savefig(results_folder+'/SNP_network_'+name_dataset+'.svg', bbox_inches='tight')
         
         
         
