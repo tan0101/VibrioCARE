@@ -32,6 +32,11 @@ scikit-learn v1.0.2
 scipy v1.9.3
 networkx v2.8.4
 matplotlib v3.6.2
+imblearn v0.10.1
+pickle
+collections
+pathlib
+copy
 ```
 
 # Installation Guide:
