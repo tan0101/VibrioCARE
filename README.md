@@ -53,9 +53,9 @@ This takes 1-2 min to build
 
 After installing the project, run each available code using _python code_name.py_. Each code will automatically import the corresponding data from the **Data** folder and will produce the following output
 
-* Lineage_Separation.py: produces an excel xlsx file named "Features_lineages.xlsx" with the Fisher Exact test statistics for the accessory genes, and core and intergenic SNPs. It will also print in the terminal the Mann Whitney U tests comparing the count of accessory genes, core and intergenic SNPs between the lineages BD-1.2 and BD-2 and the different collection years.
-* snp_network.py: produces an SVG figure name "SNP_network_Vibrio.svg" (Figure 2 in the manuscript)
-* ML_pipeline_binary.py and ML_pipeline_multi.py: produces multiple csv files containing the value for each run and the mean and standard deviation over 30 runs of the following performance metrics: AUC, accuracy, sensitivity, specificity, Cohen's Kappa score and precision along. It also saves the pre-processed data in a pickle format and the selected features in a csv format.
+* Lineage_Separation.py: produces an excel xlsx file named "Features_lineages.xlsx" with the Fisher Exact test statistics for the accessory genes, and core and intergenic SNPs. It will also print in the terminal the Mann Whitney U tests comparing the count of accessory genes, core and intergenic SNPs between the lineages BD-1.2 and BD-2 and the different collection years. This takes 1 min to run
+* snp_network.py: produces an SVG figure name "SNP_network_Vibrio.svg" (Figure 2 in the manuscript). This takes 1 min to run
+* ML_pipeline_binary.py and ML_pipeline_multi.py: produces multiple csv files containing the value for each run and the mean and standard deviation over 30 runs of the following performance metrics: AUC, accuracy, sensitivity, specificity, Cohen's Kappa score and precision along. It also saves the pre-processed data in a pickle format and the selected features in a csv format. This takes 20-30 min to run.
 
 # Algorithm's Flow
 ![Alt Text](/images/algorithm_flow.png)
