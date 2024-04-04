@@ -49,7 +49,7 @@ def update_progress(progress):
 if __name__ == "__main__":
     mpl.rc('font',family='Arial')
     name_dataset = "Vibrio" 
-    folder = "Vibrio"
+    folder = "Data"
     results_folder = "Results IDESHI and IEDCR" #"Results IDESHI"
     
     # Load Data Core:
