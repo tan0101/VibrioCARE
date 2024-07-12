@@ -38,6 +38,7 @@ setup(
         'networkx==2.8.4',
         'matplotlib==3.6.2',
         'imblearn==0.10.1',
+        'cobra==0.24.0'
     ],
     license='Apache License 3.0',
 )
