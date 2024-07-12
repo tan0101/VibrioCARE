@@ -58,7 +58,7 @@ After installing the project, run each available code using _python code_name.py
 * ML_pipeline_binary.py and ML_pipeline_multi.py: produces multiple csv files containing the value for each run and the mean and standard deviation over 30 runs of the following performance metrics: AUC, accuracy, sensitivity, specificity, Cohen's Kappa score and precision along. It also saves the pre-processed data in a pickle format and the selected features in a csv format. This takes 20-30 min to run.
 
 # Algorithm's Flow (ML_pipeline_binary.py and ML_pipeline_multi.py)
-![Alt Text](/images/algorithm_flow.png)
+![Alt Text](/images/algorithm_flow_new.png)
 
 # License
 
