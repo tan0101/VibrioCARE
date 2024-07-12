@@ -102,7 +102,7 @@ if __name__ == "__main__":
     clinical_data_df = pd.read_csv(folder+"/"+name_dataset+"_clinical_data.csv", header=[0])
     samples_clinical = np.array(clinical_data_df[clinical_data_df.columns[0]])
     
-    metadata_df = pd.read_csv(folder+"/"+name_dataset+"_metadata2.csv", header=[0], index_col=[0])
+    metadata_df = pd.read_csv(folder+"/"+name_dataset+"_metadata3.csv", header=[0], index_col=[0])
     samples_meta = np.array(metadata_df[metadata_df.columns[0]])
 
     # Change order of samples in the AMR dataframes
@@ -136,12 +136,25 @@ if __name__ == "__main__":
     clade_name = "BD-1.2"
     id_clade = np.where(metadata_df["Beast"] == clade_name)[0]
 
+    print(metadata_df.shape)
+    print(data_comb_df.shape)
+    print(clinical_data_df.shape)
+    
     data_comb_df = data_comb_df.loc[samples_clinical[id_clade],:]
     data_comb = np.array(data_comb_df)
     data_comb[data_comb>0]=1
 
     clinical_data_df = clinical_data_df.iloc[id_clade,:].reset_index()
     clinical_data_df.drop(columns="index", axis=1, inplace=True)
+
+    metadata_df = metadata_df.loc[id_clade,:].reset_index()
+    metadata_df.drop(columns="index", axis=1, inplace=True)
+    print(np.array_equal(samples_clinical[id_clade], metadata_df[metadata_df.columns[0]]))     
+    print(metadata_df.shape)
+    print(data_comb_df.shape)
+    print(clinical_data_df.shape)
+    
+    input("cont")
 
     # Nested Cross Validation:
     inner_loop_cv = 3   
@@ -151,13 +164,11 @@ if __name__ == "__main__":
     NUM_TRIALS = 30
     
     # Grid of Parameters:
-    C_grid = {"clf__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000]}
-    est_grid = {"clf__n_estimators": [2, 4, 8, 16, 32, 64]}
-    MLP_grid = {"clf__alpha": [0.001, 0.01, 0.1, 1, 10, 100], "clf__learning_rate_init": [0.001, 0.01, 0.1, 1],
-        "clf__hidden_layer_sizes": [10, 20, 40, 100, 200, 300, 400, 500]}
-    SVC_grid = {"clf__gamma": [0.0001, 0.001, 0.01, 0.1], "clf__C": [0.001, 0.01, 0.1, 1, 10, 100, 1000]}
-    DT_grid = {"clf__max_depth": [10, 20, 30, 50, 100]}
-    XGBoost_grid = {"clf__n_estimators": [2, 4, 8, 16, 32, 64], "clf__learning_rate": [0.001, 0.01, 0.1, 1]}
+    C_grid = {"clf__C": [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]}
+    est_grid = {"clf__n_estimators": [2, 4, 8, 16, 32, 64, 128, 256]}
+    SVC_grid = {"clf__gamma": [0.0001, 0.0001, 0.001, 0.01, 0.1, 1], "clf__C": [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]}
+    DT_grid = {"clf__max_depth": [10, 20, 30, 50, 100, 200, 300]}
+    XGBoost_grid = {"clf__n_estimators": [2, 4, 8, 16, 32, 64, 128, 256], "clf__learning_rate": [0.0001, 0.001, 0.01, 0.1, 1]}
         
     # Classifiers:
     names = ["Logistic Regression", "Linear SVM", "RBF SVM",
@@ -173,19 +184,24 @@ if __name__ == "__main__":
         GradientBoostingClassifier()
         ]
     
-    print(clinical_data_df.columns[4:9])
-    for name_clinical in clinical_data_df.columns[4:9]:
-        print("Symptom: {}".format(name_clinical))
+    print(clinical_data_df.columns[5:11])
+    for name_clinical in clinical_data_df.columns[5:11]:
+        print("Antibiotic: {}".format(name_clinical))
         
         target_original = np.array(clinical_data_df[name_clinical])
-        
+                
         # Check minimum number of samples:
         count_class = Counter(target_original)
+        print(len(target_original))
+        print(count_class)
+        print(len(count_class))
         
         if len(count_class)<3:
             continue
 
-        keys_class = list(count_class.keys())       
+        keys_class = list(count_class.keys())
+        print(keys_class)
+        
 
         for count_1, key_1 in enumerate(keys_class):
             for key_2 in keys_class[(count_1+1):]:
@@ -194,75 +210,213 @@ if __name__ == "__main__":
                 
                 print("Classes - {} and {}".format(key_1,key_2))
 
+                data_orig_df = data_comb_df
+                data_orig = np.array(data_orig_df)
+
+                features_anti = data_comb_df.columns
+
+
                 idx_NaN = np.where((target_original != key_1) & (target_original != key_2))[0]
-                data = np.delete(data_comb, idx_NaN, axis=0)
                 target_sel = np.delete(target_original,idx_NaN)
-
-                count_class_sel = Counter(target_sel)
-                keys_class = list(count_class_sel.keys())
+                data_orig = np.delete(data_orig, idx_NaN, axis=0)
                 
-                if keys_class[0] < keys_class[1]:
-                    target_sel[target_sel==keys_class[0]]=0
-                    target_sel[target_sel==keys_class[1]]=1
-                else:
-                    target_sel[target_sel==keys_class[1]]=0
-                    target_sel[target_sel==keys_class[0]]=1
-
                 # Remove low variance:
-                print("Before removing low variance:{}".format(data.shape))
+                print("Before removing low variance:{}".format(data_orig.shape))
                 selector = VarianceThreshold(threshold=0)
-                selector.fit_transform(data)
+                selector.fit_transform(data_orig)
                 cols=selector.get_support(indices=True)
-                data = data[:,cols]
-                features_anti = features_name_comb[cols]
+                data_orig = data_orig[:,cols]
+                features_anti = features_anti[cols]
                 n_features = len(features_anti)
-                print("After removing low variance:{}".format(data.shape))
+                print("After removing low variance:{}".format(data_orig.shape))
 
-                sm = SMOTE()
-                data, target_sel = sm.fit_resample(data, target_sel)
+                writer = pd.ExcelWriter(folder+"/"+results_folder+"/"+type_data+"/Confound"+"/Confound_statistics_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+".xlsx", engine='xlsxwriter')
+                df_confound = pd.DataFrame()
+
+                for k, name_confound in enumerate(["Serology", "Year", "Location", "Age", "Sex"]):
+                    target_confound = np.array(metadata_df[name_confound])
+                    target_confound_sel = np.delete(target_confound, idx_NaN)
+
+                    df_res = pd.DataFrame()
+                    labels_true = target_confound_sel
+
+                    table = crosstab(labels_true, target_sel)
+                    stat, p, dof, expected = chi2_contingency(table[-1])
+
+                    df_confound.loc[k,"Factor"] = name_confound
+                    df_confound.loc[k,"chi2"] = p
+
+                    for count, feat in enumerate(features_anti):
+                        table = crosstab(labels_true, data_orig[:,count])
+                        stat, p, dof, expected = chi2_contingency(table[-1])
+
+                        df_res.loc[count,"Feature"] = feat
+                        df_res.loc[count,"chi2"] = p
+
+                    df_res.sort_values('chi2', ignore_index=True, inplace=True, ascending=True)
+                    df_res.to_excel(writer, sheet_name = name_confound, index = True)                        
+
+                    # Get the dimensions of the dataframe.
+                    (max_row, max_col) = df_res.shape
+
+                    # Get the xlsxwriter workbook and worksheet objects.
+                    workbook  = writer.book
+                    worksheet = writer.sheets[name_confound]
+                    # Apply a conditional format to the required cell range.
+
+                    cell_format = workbook.add_format()
+                    cell_format.set_font_color('red')
+
+                    worksheet.conditional_format(1, max_col, max_row, max_col,
+                                                {'type':     'cell',
+                                                    'criteria': 'less than',
+                                                    'value':     0.01/df_res.shape[0],
+                                                    'format':    cell_format})
+                    
+
+                df_confound.sort_values('chi2', ignore_index=True, inplace=True, ascending=True)
+                df_confound.to_excel(writer, sheet_name = "Confound", index = True)
+
+                # Get the xlsxwriter workbook and worksheet objects.
+                workbook  = writer.book
+                worksheet = writer.sheets["Confound"]
+                # Apply a conditional format to the required cell range.
+
+                cell_format = workbook.add_format()
+                cell_format.set_font_color('red')
+
+                worksheet.conditional_format(1, max_col, max_row, max_col,
+                                            {'type':     'cell',
+                                                'criteria': 'less than',
+                                                'value':     0.01/df_confound.shape[0],
+                                                'format':    cell_format})
+                    
+                writer.close()
+
+                important_factors = np.array(df_confound.loc[np.where(df_confound["chi2"]<0.01/len(df_confound))[0],"Factor"])
+                
+                features_remove = []
+                for factor in important_factors:
+                    df_factor = pd.read_excel(folder+"/"+results_folder+"/"+type_data+"/Confound"+"/Confound_statistics_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+".xlsx", sheet_name=factor, header=[0], index_col=[0])
+                    for count, feat in enumerate(df_factor["Feature"]):
+                        if df_factor.loc[count,"chi2"] < 0.01/df_factor.shape[0]:
+                            features_remove.append(feat)
+
+                features_remove = np.unique(features_remove)
+
+                idx_keep = []
+                for count, feat in enumerate(features_anti):
+                    if feat not in features_remove:
+                        idx_keep.append(count)
+
+                features_anti = features_anti[idx_keep]
+                data_orig = data_orig[:,idx_keep]
+                n_features = len(features_anti)
+                print("After removing confound:{}".format(data_orig.shape))
+
+                features_sel = np.zeros(len(features_anti))
+                features_sel_array = np.zeros((len(features_anti),1000))
+
+                update_progress(0)
+                for rs in range(0,1000):
+                    sm = SMOTE(random_state=rs) 
+                    data, target = sm.fit_resample(data_orig, target_sel)
+                    data[data>0.5]=1
+                    data[data<0.5]=0
+                    
+                    pvalue_chi2 = np.zeros(n_features,dtype=float)
+                    classes_sort = np.unique(target_sel)
+                    for n_feat in range(n_features): 
+                        id_0 = np.where(target == classes_sort[0])[0]
+                        id_1 = np.where(target == classes_sort[1])[0]
+                        array = np.zeros((2,2))
+                        array[0,0] = len(np.where(data[id_0,n_feat] == 1)[0])
+                        array[1,0] = len(np.where(data[id_0,n_feat] == 0)[0])
+                        array[0,1] = len(np.where(data[id_1,n_feat] == 1)[0])
+                        array[1,1] = len(np.where(data[id_1,n_feat] == 0)[0])
+
+                        res = fisher_exact(array)
+                        pvalue_chi2[n_feat] = res[1]
+
+                    id_chi2 = np.where(pvalue_chi2 < 0.1)[0]
+                
+                    if len(id_chi2) == 0:
+                        continue
+
+                    features_sel[id_chi2]+=1
+                    features_sel_array[id_chi2,rs]=1
+
+                    update_progress((rs+1)/1000)
+            
+                id_sel = np.where(features_sel>=750)[0]
+
+                rs_array = []
+                update_progress(0)
+                for rs in range(0,1000):
+                    feat_sel = np.where(features_sel_array[:,rs] == 1)[0]
+                    intersect = np.intersect1d(id_sel,feat_sel)
+
+                    if len(intersect) == len(id_sel):
+                        rs_array.append(rs)
+
+                    update_progress((rs+1)/1000)
+
+                print(rs_array)
+                print(len(rs_array))
+
+                sm = SMOTE(random_state=rs_array[0])
+                data, target = sm.fit_resample(data_orig, target_sel)
                 data[data>0.5]=1
                 data[data<0.5]=0
 
-                
-                pvalue_chi2 = np.zeros(n_features,dtype=float)
+                idx = np.where(features_sel_array[:,rs_array[0]] == 1)[0]
                 classes_sort = np.unique(target_sel)
-                for n_feat in range(n_features): 
-                    id_0 = np.where(target_sel == classes_sort[0])[0]
-                    id_1 = np.where(target_sel == classes_sort[1])[0]
+                pvalue_sel = np.zeros(len(idx))
+                for count_idx, index in enumerate(idx):
+                    id_0 = np.where(target == classes_sort[0])[0]
+                    id_1 = np.where(target == classes_sort[1])[0]
                     array = np.zeros((2,2))
-                    array[0,0] = len(np.where(data[id_0,n_feat] == 1)[0])
-                    array[1,0] = len(np.where(data[id_0,n_feat] == 0)[0])
-                    array[0,1] = len(np.where(data[id_1,n_feat] == 1)[0])
-                    array[1,1] = len(np.where(data[id_1,n_feat] == 0)[0])
+                    array[0,0] = len(np.where(data[id_0,index] == 1)[0])
+                    array[1,0] = len(np.where(data[id_0,index] == 0)[0])
+                    array[0,1] = len(np.where(data[id_1,index] == 1)[0])
+                    array[1,1] = len(np.where(data[id_1,index] == 0)[0])
 
                     res = fisher_exact(array)
-                    pvalue_chi2[n_feat] = res[1]
+                    pvalue_sel[count_idx] = res[1]
 
-                id_chi2 = np.where(pvalue_chi2 < 0.1)[0]
-                print("Features chi2 selected: {}".format(len(id_chi2)))
-
-                if len(id_chi2) == 0:
-                    continue
-
-                data = data[:,id_chi2]
-                print(data.shape)
-
-                features_anti = features_anti[id_chi2]
+                data = data[:,idx]
 
                 directory = folder+"/"+results_folder+"/"+type_data
                 
                 if not os.path.exists(directory):
                     os.makedirs(directory)
+
+                fig = plt.figure(figsize=(8, 5))
+                ax = fig.add_subplot(1,1,1)
+                ax.hist(features_sel, bins=20, range=(0,1000))
+                ax.set_ylabel("Number of Features")
+                ax.set_xlabel("Bins")
+                ax.set_title(name_clinical)
+                fig.tight_layout()
+                plt.savefig(directory+"/features_"+name_dataset+"_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+'.svg', dpi=300)
+                
+                print("Features selected: {}".format(len(idx)))
+
+                #data = data[:,id_sel]
+        
+                features_anti = features_anti[idx]
                     
                 with open(directory+"/data_"+name_dataset+"_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+'.pickle', 'wb') as f:
                     pickle.dump(data, f)
                 
-                features_genes_df = pd.DataFrame(pvalue_chi2[id_chi2], columns = ["p_value chi2"])
+                features_genes_df = pd.DataFrame(features_sel[idx], columns = ["selection times - rs "+str(rs_array[0])])
                 features_genes_df["index"] = features_anti
                 
-                names_f = ["index", "p_value chi2"]
+                names_f = ["index", "selection times - rs "+str(rs_array[0])]
                 features_genes_df = features_genes_df[names_f]
+                features_genes_df["pvalue"] = pvalue_sel
                 features_genes_df.to_csv(directory+"/features_"+name_dataset+"_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+".csv")
+                    
 
                 # Initialize Variables:
                 scores_auc = np.zeros([NUM_TRIALS,len(classifiers)])
@@ -282,7 +436,15 @@ if __name__ == "__main__":
                 
                     k = 0
                 
-                    for name, clf in zip(names, classifiers):                        
+                    for name, clf in zip(names, classifiers):
+                        #print("Classifier = {}".format(name))
+                        
+                        #model = Pipeline([('sampling',SMOTEENN(sampling_strategy = "all", random_state=i)),
+                        #                ('clf', clf)])
+
+                        #model = Pipeline([('sampling',SMOTE(random_state=i)),
+                        #                ('clf', clf)])
+                        
                         model = Pipeline([('clf', clf)])
 
                         if name == "QDA" or name == "LDA" or name == "Naive Bayes":
@@ -292,8 +454,6 @@ if __name__ == "__main__":
                                 grid = SVC_grid              
                             elif name == "Random Forest" or name == "AdaBoost" or name == "Extra Trees":
                                 grid = est_grid
-                            elif name == "Neural Net":
-                                grid = MLP_grid
                             elif name == "Linear SVM":
                                 grid = C_grid
                             elif name == "Decision Tree":
@@ -305,10 +465,10 @@ if __name__ == "__main__":
 
                             # Inner Search
                             classif = GridSearchCV(estimator=model, param_grid=grid, cv=inner_cv)
-                            classif.fit(data, target_sel)
+                            classif.fit(data, target)
                     
                         # Outer Search
-                        cv_results = cross_validate(classif, data, target_sel, scoring=scoring, cv=outer_cv, return_estimator=True)
+                        cv_results = cross_validate(classif, data, target, scoring=scoring, cv=outer_cv, return_estimator=True)
 
                         tp = cv_results['test_tp']
                         tn = cv_results['test_tn']
@@ -355,6 +515,8 @@ if __name__ == "__main__":
                     "Sens_Mean", "Sens_Std", "Spec_Mean", "Spec_Std", 
                     "Kappa_Mean", "Kappa_Std", "Prec_Mean", "Prec_Std"]
 
+
+
                 results_df=pd.DataFrame(results, columns=names, index=names_scr)
                 results_df.to_csv(directory+"/SMOTE_results_"+name_dataset+"_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+".csv")
 
@@ -375,4 +537,3 @@ if __name__ == "__main__":
                 
                 df_prec = pd.DataFrame(scores_prec, columns=names)
                 df_prec.to_csv(directory+"/SMOTE_"+name_dataset+"_"+name_clinical+"_"+str(key_1)+"_"+str(key_2)+"_prec.csv")
-        
