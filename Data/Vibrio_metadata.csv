@@ -1,0 +1,130 @@
+,Strain Id,Serology,Year,Location,Collection date,Age,Sex,Diadur,Numstool,Abdominal Pain,Vomit,Dehyd,Beast,Age Range
+0,NGICDV-001,Ogawa,2015,Sylhet,15-Sep,,,,,,,,BD-2,
+1,NGICDV-002,Ogawa,2015,Dhaka,15-Oct,,,,,,,,BD-2,
+2,NGICDV-003,Ogawa,2015,Dhaka,15-Oct,,,,,,,,BD-2,
+3,NGICDV-005,Ogawa,2015,Dhaka,15-Oct,,,,,,,,BD-2,
+4,NGICDV-011,Ogawa,2015,Dhaka,15-Nov,3,Male,1,3,Yes,Yes,3,BD-2,30-39 years
+5,NGICDV-012,Ogawa,2015,Dhaka,15-Nov,3,Male,1,4,Yes,Yes,3,BD-2,30-39 years
+6,NGICDV-013,Inaba,2015,Dhaka,15-Nov,3,Male,1,5,Yes,No,2,BD-2,30-39 years
+7,NGICDV-014,Ogawa,2015,Dhaka,15-Dec,0,Male,2,2,No,Yes,1,BD-2,<10 years
+8,NGICDV-015,Ogawa,2015,Dhaka,15-Dec,0,Female,1,2,No,Yes,2,BD-2,<10 years
+9,NGICDV-017,Inaba,2015,Dhaka,15-Dec,1,Male,2,4,No,Yes,3,BD-2,10-19 years
+10,NGICDV-018,Inaba,2015,Dhaka,15-Dec,3,Male,1,2,Yes,Yes,3,BD-2,30-39 years
+11,NGICDV-019,Ogawa,2015,Dhaka,15-Oct,4,Female,1,5,Yes,Yes,3,BD-2,40-49 years
+12,NGICDV-020,Ogawa,2015,Dhaka,15-Nov,5,Female,1,2,Yes,Yes,3,BD-2,50-59 years
+13,NGICDV-025,Inaba,2016,Sylhet,16-Jul,2,Female,2,4,Yes,No,1,BD-2,20-29 years
+14,NGICDV-026,Inaba,2016,Sylhet,16-Jul,2,Female,2,3,Yes,No,1,BD-2,20-29 years
+15,NGICDV-027,Inaba,2016,Sylhet,16-Aug,3,Male,3,5,Yes,No,2,BD-2,30-39 years
+16,NGICDV-029,Inaba,2016,Sylhet,16-Aug,0,Female,1,4,No,Yes,1,BD-2,<10 years
+17,NGICDV-030,Inaba,2016,Sylhet,16-Sep,1,Male,2,2,No,No,2,BD-2,10-19 years
+18,NGICDV-031,Inaba,2016,Dhaka,16-Jan,3,Female,1,3,Yes,Yes,3,BD-2,30-39 years
+19,NGICDV-032,Inaba,2016,Dhaka,16-Jan,2,Male,1,3,No,Yes,3,BD-2,20-29 years
+20,NGICDV-033,Ogawa,2016,Dhaka,16-Jan,3,Female,1,3,No,Yes,3,BD-1.2,30-39 years
+21,NGICDV-034,Inaba,2016,Dhaka,16-Mar,0,Male,3,3,No,Yes,2,BD-2,<10 years
+22,NGICDV-035,Inaba,2016,Dhaka,16-Mar,3,Female,1,2,Yes,Yes,3,BD-2,30-39 years
+23,NGICDV-036,Inaba,2016,Dhaka,16-Mar,2,Female,1,5,Yes,No,3,BD-2,20-29 years
+24,NGICDV-037,Inaba,2016,Dhaka,16-Apr,4,Male,1,5,Yes,Yes,3,BD-2,40-49 years
+25,NGICDV-038,Inaba,2016,Dhaka,16-Apr,0,Male,1,2,No,Yes,3,BD-2,<10 years
+26,NGICDV-039,Inaba,2016,Dhaka,16-Jul,4,Male,2,4,Yes,Yes,3,BD-2,40-49 years
+27,NGICDV-040,Inaba,2016,Dhaka,16-Sep,1,Male,1,5,No,Yes,3,BD-2,10-19 years
+28,NGICDV-041,Inaba,2017,Chittagong,17-Feb,2,Female,2,4,No,No,2,BD-2,20-29 years
+29,NGICDV-042,Inaba,2017,Chittagong,17-May,2,Male,1,3,Yes,No,2,BD-2,20-29 years
+30,NGICDV-043,Inaba,2017,Chittagong,17-Jun,1,Female,2,3,Yes,Yes,1,BD-2,10-19 years
+31,NGICDV-044,Inaba,2017,Chittagong,17-Nov,2,Male,2,4,Yes,Yes,2,BD-2,20-29 years
+32,NGICDV-047,Inaba,2017,Sylhet,17-Apr,2,Female,2,5,Yes,No,2,BD-2,20-29 years
+33,NGICDV-048,Inaba,2017,Dhaka,17-Apr,3,Male,2,5,Yes,Yes,2,BD-2,30-39 years
+34,NGICDV-049,Inaba,2017,Dhaka,17-Mar,3,Male,2,5,No,No,2,BD-2,30-39 years
+35,NGICDV-050,Ogawa,2017,Rajshahi,17-Jul,0,Female,2,5,Yes,Yes,2,BD-1.2,<10 years
+36,NGICDV-051,Inaba,2017,Dhaka,17-Mar,5,Male,1,5,Yes,Yes,3,BD-2,50-59 years
+37,NGICDV-052,Inaba,2017,Dhaka,17-Mar,3,Male,1,5,Yes,Yes,1,BD-2,30-39 years
+38,NGICDV-053,Inaba,2017,Dhaka,17-Mar,0,Male,1,3,Yes,Yes,3,BD-2,<10 years
+39,NGICDV-054,Inaba,2017,Dhaka,17-Mar,0,Female,1,3,Yes,No,1,BD-2,<10 years
+40,NGICDV-055,Inaba,2017,Dhaka,17-Mar,2,Male,2,4,Yes,Yes,3,BD-2,20-29 years
+41,NGICDV-056,Inaba,2017,Dhaka,17-Mar,0,Male,1,2,No,No,2,BD-2,<10 years
+42,NGICDV-058,Inaba,2017,Dhaka,17-Apr,1,Male,1,3,Yes,Yes,3,BD-2,10-19 years
+43,NGICDV-061,Ogawa,2018,Dhaka,18-Apr,2,Male,2,3,Yes,Yes,1,BD-1.2,20-29 years
+44,NGICDV-062,Ogawa,2018,Dhaka,18-Sep,6,Female,2,4,Yes,Yes,2,BD-1.2,60-69 years
+45,NGICDV-063,Ogawa,2018,Dhaka,18-Sep,7,Female,2,5,Yes,Yes,2,BD-1.2,70-79 years
+46,NGICDV-065,Ogawa,2018,Dhaka,18-Nov,3,Male,1,4,Yes,Yes,3,BD-1.2,30-39 years
+47,NGICDV-066,Ogawa,2018,Dhaka,18-Dec,2,Female,2,5,Yes,Yes,3,BD-2,20-29 years
+48,NGICDV-067,Inaba,2018,Khulna,18-Jan,4,Male,2,3,Yes,Yes,2,BD-2,40-49 years
+49,NGICDV-071,Ogawa,2018,Dhaka,18-May,1,Male,1,2,No,Yes,3,BD-1.2,10-19 years
+50,NGICDV-072,Ogawa,2018,Dhaka,18-May,3,Male,1,3,Yes,No,3,BD-1.2,30-39 years
+51,NGICDV-073,Ogawa,2018,Dhaka,18-May,4,Male,1,3,No,Yes,3,BD-1.2,40-49 years
+52,NGICDV-074,Ogawa,2018,Dhaka,18-May,2,Female,1,3,Yes,Yes,3,BD-1.2,20-29 years
+53,NGICDV-075,Ogawa,2018,Dhaka,18-Jul,4,Female,1,4,No,Yes,3,BD-1.2,40-49 years
+54,NGICDV-076,Ogawa,2018,Dhaka,18-Jul,0,Male,1,4,Yes,Yes,3,BD-1.2,<10 years
+55,NGICDV-077,Ogawa,2018,Dhaka,18-Sep,1,Male,1,2,Yes,Yes,3,BD-1.2,10-19 years
+56,NGICDV-078,Ogawa,2018,Dhaka,18-Sep,6,Male,1,2,No,Yes,3,BD-1.2,60-69 years
+57,NGICDV-079,Ogawa,2018,Dhaka,18-Apr,1,Male,1,4,Yes,Yes,3,BD-1.2,10-19 years
+58,NGICDV-080,Ogawa,2018,Dhaka,18-Nov,2,Male,1,5,Yes,Yes,3,BD-1.2,20-29 years
+59,NGICDV-081,Inaba,2019,Rajshahi,19-Feb,5,Male,2,3,No,No,2,BD-2,50-59 years
+60,NGICDV-082,Ogawa,2019,Rajshahi,19-Nov,3,Male,2,5,No,Yes,3,BD-1.2,30-39 years
+61,NGICDV-084,Ogawa,2019,Rajshahi,19-Jul,5,Female,1,5,No,Yes,3,BD-2,50-59 years
+62,NGICDV-085,Inaba,2019,Dhaka,19-Dec,5,Male,3,4,Yes,Yes,2,BD-1.2,50-59 years
+63,NGICDV-086,Ogawa,2019,Dhaka,19-Nov,5,Female,2,5,Yes,Yes,3,BD-1.2,50-59 years
+64,NGICDV-087,Ogawa,2019,Chittagong,19-Apr,2,Female,2,3,No,Yes,2,BD-1.2,20-29 years
+65,NGICDV-088,Ogawa,2019,Chittagong,19-Jun,6,Male,2,3,No,Yes,2,BD-1.2,60-69 years
+66,NGICDV-090,Ogawa,2019,Khulna,19-Nov,5,Female,2,4,No,No,2,BD-1.2,50-59 years
+67,NGICDV-091,Ogawa,2019,Dhaka,19-May,2,Male,1,4,Yes,No,3,BD-1.2,20-29 years
+68,NGICDV-092,Ogawa,2019,Dhaka,19-May,2,Female,1,4,No,Yes,3,BD-1.2,20-29 years
+69,NGICDV-095,Ogawa,2019,Dhaka,19-Apr,4,Male,1,1,Yes,Yes,3,BD-1.2,40-49 years
+70,NGICDV-096,Ogawa,2019,Dhaka,19-Apr,3,Male,1,2,No,Yes,2,BD-1.2,30-39 years
+71,NGICDV-097,Ogawa,2019,Dhaka,19-Jun,1,Female,1,3,No,Yes,3,BD-1.2,10-19 years
+72,NGICDV-098,Ogawa,2019,Dhaka,19-Jun,0,Female,2,3,Yes,Yes,3,BD-1.2,<10 years
+73,NGIEDV-007,Inaba,2020,Dhaka,20-Nov,2,Female,2,5,Yes,Yes,3,BD-1.2,20-29 years
+74,NGIEDV-017,Inaba,2020,Dhaka,20-Nov,3,Female,2,5,Yes,Yes,3,BD-1.2,30-39 years
+75,NGIEDV-025,Inaba,2020,Dhaka,20-Nov,2,Female,2,5,Yes,Yes,3,BD-1.2,20-29 years
+76,NGIEDV-027,Inaba,2020,Dhaka,20-Nov,4,Female,2,5,Yes,Yes,3,BD-1.2,40-49 years
+77,NGIEDV-028,Inaba,2020,Dhaka,20-Nov,4,Male,2,5,No,Yes,3,BD-1.2,40-49 years
+78,NGIEDV-029,Inaba,2020,Dhaka,20-Nov,7,Male,2,5,No,Yes,2,BD-1.2,70-79 years
+79,NGIEDV-039,Inaba,2020,Dhaka,20-Dec,1,Male,2,5,Yes,No,3,BD-1.2,10-19 years
+80,NGIEDV-044,Ogawa,2020,Dhaka,20-Dec,5,Female,2,5,Yes,Yes,3,BD-1.2,50-59 years
+81,NGIEDV-046,Inaba,2020,Dhaka,20-Dec,,,,,,,,BD-1.2,
+82,NGIEDV-047,Inaba,2020,Dhaka,20-Dec,,,,,,,,BD-1.2,
+83,NGIEDV-048,Inaba,2020,Dhaka,20-Dec,,,,,,,,BD-1.2,
+84,NGIEDV-049,Inaba,2020,Dhaka,20-Dec,,,,,,,,BD-1.2,
+85,NGIEDV-057,Ogawa,2020,Dhaka,21-Dec,2,Male,1,5,Yes,Yes,3,BD-1.2,20-29 years
+86,NGIEDV-058,Ogawa,2020,Dhaka,21-Dec,,,,,,,,BD-1.2,
+87,NGIEDV-059,Ogawa,2020,Dhaka,21-Dec,,,,,,,,BD-1.2,
+88,NGIEDV-060,Inaba,2020,Dhaka,21-Dec,2,Female,2,4,Yes,Yes,3,BD-1.2,20-29 years
+89,NGIEDV-061,Inaba,2020,Dhaka,21-Dec,2,Male,2,5,Yes,Yes,3,BD-1.2,20-29 years
+90,NGIEDV-062,Inaba,2020,Dhaka,21-Dec,2,Female,2,5,Yes,No,3,BD-1.2,20-29 years
+91,NGIEDV-063,Inaba,2020,Dhaka,21-Dec,3,Male,1,4,Yes,Yes,3,BD-1.2,30-39 years
+92,NGIEDV-064,Inaba,2021,Dhaka,21-Feb,2,Female,2,5,Yes,Yes,3,BD-1.2,20-29 years
+93,NGIEDV-065,Ogawa,2021,Dhaka,21-Feb,1,Female,2,4,Yes,Yes,3,BD-1.2,10-19 years
+94,NGIEDV-066,Inaba,2021,Dhaka,21-Feb,1,Female,2,4,Yes,No,2,BD-1.2,10-19 years
+95,NGIEDV-067,Inaba,2021,Dhaka,21-Feb,3,Male,2,5,Yes,Yes,3,BD-1.2,30-39 years
+96,NGIEDV-068,Inaba,2021,Dhaka,21-Feb,,,,,,,,BD-1.2,
+97,NGIEDV-069,Inaba,2021,Dhaka,21-Feb,3,Male,2,4,No,No,2,BD-1.2,30-39 years
+98,NGIEDV-070,Inaba,2021,Dhaka,21-Feb,3,Female,2,4,Yes,Yes,3,BD-1.2,30-39 years
+99,NGIEDV-074,Inaba,2021,Dhaka,21-Mar,0,Female,3,5,Yes,No,2,BD-1.2,<10 years
+100,NGIEDV-075,Inaba,2021,Dhaka,21-Mar,4,Female,2,4,No,Yes,2,BD-1.2,40-49 years
+101,NGIEDV-076,Ogawa,2021,Dhaka,21-Mar,3,Female,2,5,Yes,Yes,3,BD-1.2,30-39 years
+102,NGIEDV-077,Inaba,2021,Dhaka,21-Mar,3,Female,2,5,Yes,Yes,3,BD-1.2,30-39 years
+103,NGIEDV-078,Ogawa,2021,Dhaka,21-Mar,5,Female,2,4,Yes,Yes,2,BD-1.2,50-59 years
+104,NGIEDV-079,Inaba,2021,Dhaka,21-Mar,5,Female,2,4,Yes,Yes,3,BD-1.2,50-59 years
+105,NGIEDV-080,Inaba,2021,Dhaka,21-Mar,7,Male,1,3,Yes,No,2,BD-1.2,70-79 years
+106,NGIEDV-082,Inaba,2021,Dhaka,21-Mar,5,Male,1,4,Yes,Yes,3,BD-1.2,50-59 years
+107,NGIEDV-086,Ogawa,2021,Dhaka,21-Mar,0,Male,2,4,Yes,Yes,2,BD-1.2,<10 years
+108,NGIEDV-087,Ogawa,2021,Dhaka,21-Mar,3,Female,2,5,Yes,Yes,3,BD-1.2,30-39 years
+109,NGIEDV-088,Ogawa,2021,Dhaka,21-Mar,5,Male,2,4,No,Yes,3,BD-1.2,50-59 years
+110,NGIEDV-089,Inaba,2021,Dhaka,21-Mar,4,Female,2,5,Yes,Yes,3,BD-1.2,40-49 years
+111,NGIEDV-090,Ogawa,2021,Dhaka,21-Mar,7,Male,2,5,Yes,Yes,3,BD-1.2,70-79 years
+112,NGIEDV-093,Inaba,2021,Dhaka,21-Mar,4,Female,2,4,No,No,2,BD-1.2,40-49 years
+113,NGIEDV-094,Inaba,2021,Dhaka,21-Mar,2,Male,2,5,Yes,Yes,3,BD-1.2,20-29 years
+114,NGIEDV-095,Ogawa,2021,Dhaka,21-Mar,2,Male,2,4,Yes,No,2,BD-1.2,20-29 years
+115,NGIEDV-096,Inaba,2021,Dhaka,21-Apr,,,,,,,,BD-1.2,
+116,NGIEDV-097,Ogawa,2021,Dhaka,21-Apr,,,,,,,,BD-1.2,
+117,NGIEDV-100,Inaba,2021,Dhaka,21-May,,,,,,,,BD-1.2,
+118,NGIEDV-102,Ogawa,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+119,NGIEDV-103,Ogawa,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+120,NGIEDV-104,Inaba,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+121,NGIEDV-105,Inaba,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+122,NGIEDV-106,Inaba,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+123,NGIEDV-108,Ogawa,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+124,NGIEDV-109,Ogawa,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+125,NGIEDV-110,Inaba,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+126,NGIEDV-111,Ogawa,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+127,NGIEDV-112,Inaba,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
+128,NGIEDV-113,Ogawa,2021,Barisal,21-Apr,,,,,,,,BD-1.2,
